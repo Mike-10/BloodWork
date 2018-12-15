@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Booked Orders</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+   <h1>Booked Orders</h1>
+    <p1>{{message_1}}</p1>
+   <table style="width:100%">
+     <thead>
+     <tr>
+       <th>Patient ID</th>
+       <th>Blood Type</th>
+       <th>Ordered</th>
+         <th>Stock</th>
+     </tr>
+   </thead>
+
+   <tbody>
+   {%for row in table%}
+    <tr>
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[3]}}</td>
+    </tr>
+       {%endfor%}
+
+  </tbody>
+  </table>
+
+  <h1>Insufficient Stock</h1>
+  <table style="width:100%">
+    <thead>
+    <tr>
+      <th>Patient ID</th>
+      <th>Ordered</th>
+      <th>Blood Type</th>
+        <th>Stock</th>
+        <th>Alternative</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+  {%for super in table2%}
+   <tr>
+     <td>{{super[0]}}</td>
+     <td>{{super[1]}}</td>
+     <td>{{super[2]}}</td>
+        <td>{{super[3]}}</td>
+        <td>{{super[4]}}</td>
+
+   </tr>
+      {%endfor%}
+
+ </tbody>
+ </table>
+       <a href="http://localhost:5000//">Home</a>
+       <a href="http://localhost:5000/calculator">Blood Type Calculator</a>
+       <a href="http://localhost:5000/inventory">Inventory</a>
+       <a href="http://localhost:5000/transfusion">Transfusions</a>
+   </form>
+</body>
+</html>

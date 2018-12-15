@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blood Type Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+  <body>
+       <h1>Blood Type Calculator</h1>
+    <table style="width:100%">
+    
+      <thead>
+      <tr>
+        <th>Selection</th>
+        <th>Primary Match</th>
+        <th>Other Matches</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr>
+     <td>{{message_1}}</td>
+    <td>{{message_1}}</td>
+     <td>{{message_2}}</td>
+     </tr>
+    </tbody>
+    </table>
+    <p></p>
+    <img src="{{ url_for('static', filename='chart.gif') }}"><br>
+
+    <a href="http://localhost:5000//">Home</a>
+    <a href="http://localhost:5000/calculator">Blood Type Calculator</a>
+    <a href="http://localhost:5000/inventory">Inventory</a>
+    <a href="http://localhost:5000/transfusion">Transfusions</a>
+  </body>
+</html>

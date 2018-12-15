@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Patient Directoryt</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+   <h1>Patient Directory</h1>
+   <table style="width:100%">
+     <thead>
+     <tr>
+       <th>Patient</th>
+       <th>PatientID</th>
+       <th>DOB</th>
+       <th>Blood Type</th>
+       <th>Quantity</th>
+     </tr>
+   </thead>
+
+   <tbody>
+   {%for row in table%}
+    <tr>
+      <td>{{row[0][0]+ "*" * (row[0][1:-1])|length +row[0][-1]}}</td>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[3]}}</td>
+      <td>{{row[4]}}</td>
+    </tr>
+       {%endfor%}
+
+  </tbody>
+  </table>
+   <a href="http://localhost:5000/login">Login</a>
+   <form action="http://localhost:5000/transfusionresult" method="POST">
+       <label>Please select a patient:</label>
+       <input type="text" name="blood"> <!-- you can change the type-->
+       <button>Search Patient</button><br>
+
+       <a href="http://localhost:5000//">Home</a>
+       <a href="http://localhost:5000/calculator">Blood Type Calculator</a>
+       <a href="http://localhost:5000/inventory">Inventory</a>
+       <a href="http://localhost:5000/transfusion">Transfusions</a>
+   </form>
+</body>
+</html>
